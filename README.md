@@ -4,12 +4,12 @@
 
 ## Как включить скачивание
 
-1. Положи APK в папку `downloads/`, например `downloads/life-rpg-2.2.0.apk`.
+1. Положи APK в папку `downloads/`, например `downloads/life-rpg-1.0.0.apk`.
 2. Открой `main.js` и впиши путь в самом верху:
 
    ```js
    const DOWNLOAD = {
-     apk: "downloads/life-rpg-2.2.0.apk",
+     apk: "downloads/life-rpg-1.0.0.apk",
      play: "", // сюда ссылку на Google Play, когда появится
    };
    ```
