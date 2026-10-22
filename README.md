@@ -10,7 +10,6 @@
    ```js
    const DOWNLOAD = {
      apk: "downloads/life-rpg-1.0.0.apk",
-     play: "", // сюда ссылку на Google Play, когда появится
    };
    ```
 

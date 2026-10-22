@@ -6,7 +6,6 @@
    ══════════════════════════════════════════════ */
 const DOWNLOAD = {
   apk: "",
-  play: "",
 };
 
 (function () {
@@ -34,8 +33,7 @@ const DOWNLOAD = {
     if (url) {
       anyLink = true;
       btn.href = url;
-      if (btn.dataset.download === "apk") btn.setAttribute("download", "");
-      else btn.target = "_blank";
+      btn.setAttribute("download", "");
     } else {
       btn.setAttribute("aria-disabled", "true");
       btn.addEventListener("click", (e) => {
