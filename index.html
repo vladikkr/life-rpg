@@ -4,473 +4,238 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Life RPG — прокачай свою жизнь</title>
-  <meta name="description" content="Life RPG превращает жизнь в ролевую игру: ежедневные квесты, 6 характеристик, 10 рангов, сундуки и монеты. Для Android, без интернета и рекламы.">
-  <meta name="theme-color" content="#0F1923">
+  <meta name="description" content="Life RPG превращает жизнь в игру: ежедневные квесты, 6 характеристик, 10 рангов, сундуки и монеты. Для Android, без интернета и рекламы.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F6F9FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1923" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Life RPG — прокачай свою жизнь">
-  <meta property="og:description" content="Ежедневные квесты, 6 характеристик и 10 рангов от Новичка до Бога. Становись на 1% лучше каждый день.">
+  <meta property="og:description" content="Ежедневные квесты, 6 характеристик и 10 рангов от Новичка до Бога.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap&subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="bg" aria-hidden="true">
-  <div class="bg-glow g1"></div>
-  <div class="bg-glow g2"></div>
-  <div class="bg-glow g3"></div>
-  <div class="bg-hex"></div>
-</div>
-
-<!-- ═══════════ Навигация ═══════════ -->
-<header class="nav" id="top">
-  <div class="wrap nav-inner">
-    <a href="#top" class="brand" aria-label="Life RPG — на главную">
-      <img src="assets/logo.svg" alt="" width="36" height="39">
-      <span>Life RPG</span>
-    </a>
-    <nav class="nav-links" aria-label="Разделы">
-      <a href="#how">Как это работает</a>
-      <a href="#stats">Характеристики</a>
-      <a href="#ranks">Ранги</a>
-      <a href="#loot">Награды</a>
-      <a href="#faq">Вопросы</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.svg" alt="">Life RPG</a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#attrs">Характеристики</a><a href="#day">Как играть</a><a href="#path">Ранги</a><a href="#loot">Награды</a><a href="#faq">Вопросы</a>
     </nav>
-    <a href="#download" class="btn btn-cyan btn-sm">Скачать</a>
+    <a class="btn green" href="#get">Скачать</a>
   </div>
 </header>
 
-<main>
+<main id="top">
 
-  <!-- ═══════════ Первый экран ═══════════ -->
+  <!-- Первый экран -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="pill reveal"><span class="dot-live"></span>Версия 1.0 · Android</span>
-        <h1 class="reveal">Прокачай свою <span class="grad">жизнь</span></h1>
-        <p class="lead reveal">Life RPG превращает каждый день в квест. Выполняй задания, качай шесть характеристик и поднимайся от&nbsp;Новичка до&nbsp;Бога.</p>
-        <div class="hero-cta reveal">
-          <a href="#download" class="btn btn-green btn-lg"><i data-lucide="download"></i>Скачать для Android</a>
-          <a href="#how" class="btn btn-ghost btn-lg">Как это работает</a>
+    <div class="wrap">
+      <div>
+        <span class="tag"><b></b>Версия 1.0 для Android</span>
+        <h1>Прокачай свою <span class="u">жизнь<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 12" fill="none" stroke="#58CC02" stroke-width="7" stroke-linecap="round"/></svg></span></h1>
+        <p class="lead">Ежедневные квесты, шесть характеристик и десять рангов от Новичка до Бога. Игра, в которой прокачиваешься ты сам.</p>
+        <div class="cta">
+          <a class="btn green lg" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a>
+          <a class="btn ghost lg" href="#day">Как это работает</a>
         </div>
-        <ul class="checks reveal">
-          <li><i data-lucide="wifi-off"></i>Без интернета</li>
-          <li><i data-lucide="ban"></i>Без рекламы</li>
-          <li><i data-lucide="user-x"></i>Без регистрации</li>
-        </ul>
+        <div class="facts">
+          <span><i data-lucide="wifi-off"></i>Без интернета</span>
+          <span><i data-lucide="ban"></i>Без рекламы</span>
+          <span><i data-lucide="user-x"></i>Без регистрации</span>
+        </div>
       </div>
 
-      <!-- Макет телефона со вкладкой «Герой» -->
-      <div class="hero-visual reveal">
-        <div class="float-chip chip-xp"><i data-lucide="sparkles"></i>+42 опыта</div>
-        <div class="float-chip chip-lvl"><span class="lvl-badge">25</span>НОВЫЙ УРОВЕНЬ!</div>
-        <div class="float-chip chip-coin"><span class="coin">L</span>+12</div>
-        <div class="float-chip chip-streak"><i data-lucide="flame"></i>12 дней подряд</div>
-
-        <div class="phone" aria-label="Экран приложения Life RPG">
-          <div class="phone-notch"></div>
-          <div class="screen">
-            <div class="app-top">
-              <div class="app-top-l"><img src="assets/logo.svg" alt="" width="18" height="20"> Life RPG</div>
-              <div class="app-top-r">
-                <span class="app-stat fire"><i data-lucide="flame"></i>12</span>
-                <span class="app-stat gold"><span class="coin sm">L</span>340</span>
-              </div>
+      <div class="stage" aria-label="Экран приложения Life RPG">
+        <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+        <div class="sticker st1"><i data-lucide="sparkles"></i>+42 опыта</div>
+        <div class="sticker st2"><span class="hexmini">25</span>Новый уровень!</div>
+        <div class="sticker st3"><span class="coin">L</span>+12 монет</div>
+        <div class="phone">
+          <div class="scr">
+            <div class="s-top"><b><img src="assets/logo.svg" alt="">Life RPG</b><span class="chips"><span class="chip c-fire"><i data-lucide="flame"></i>12</span><span class="chip c-gold"><i data-lucide="coins"></i>340</span></span></div>
+            <div class="s-hero"><span class="s-hex">24</span><div><strong>АДЕПТ</strong><small>ранг 3</small><div class="bar"><i style="width:68%"></i></div><em>298 / 440 опыта</em></div></div>
+            <div class="s-lbl">Характеристики</div>
+            <div class="s-attrs">
+              <div class="s-attr" style="--c:var(--p-str)"><p>Сила<b>72</b></p><div class="bar"><i style="width:72%"></i></div></div>
+              <div class="s-attr" style="--c:var(--p-agi)"><p>Ловкость<b>64</b></p><div class="bar"><i style="width:64%"></i></div></div>
+              <div class="s-attr" style="--c:var(--p-per)"><p>Восприятие<b>58</b></p><div class="bar"><i style="width:58%"></i></div></div>
+              <div class="s-attr" style="--c:var(--p-sta)"><p>Выносливость<b>81</b></p><div class="bar"><i style="width:81%"></i></div></div>
+              <div class="s-attr" style="--c:var(--p-int)"><p>Интеллект<b>90</b></p><div class="bar"><i style="width:90%"></i></div></div>
+              <div class="s-attr" style="--c:var(--p-cha)"><p>Харизма<b>47</b></p><div class="bar"><i style="width:47%"></i></div></div>
             </div>
-
-            <div class="app-hero-card">
-              <div class="app-lvl">
-                <div class="app-lvl-hex"><span>24</span></div>
-                <div class="app-lvl-info">
-                  <div class="app-rank">АДЕПТ <em>ранг 3</em></div>
-                  <div class="app-xp-bar"><div style="width:68%"></div></div>
-                  <div class="app-xp-txt">298 / 440 опыта</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="app-label">Характеристики</div>
-            <div class="app-attrs">
-              <div class="app-attr" style="--a:var(--str)"><i data-lucide="dumbbell"></i><b>Сила</b><span>72</span><div class="bar"><div style="width:72%"></div></div></div>
-              <div class="app-attr" style="--a:var(--agi)"><i data-lucide="footprints"></i><b>Ловкость</b><span>64</span><div class="bar"><div style="width:64%"></div></div></div>
-              <div class="app-attr" style="--a:var(--per)"><i data-lucide="eye"></i><b>Восприятие</b><span>58</span><div class="bar"><div style="width:58%"></div></div></div>
-              <div class="app-attr" style="--a:var(--sta)"><i data-lucide="heart-pulse"></i><b>Выносл.</b><span>81</span><div class="bar"><div style="width:81%"></div></div></div>
-              <div class="app-attr" style="--a:var(--int)"><i data-lucide="brain"></i><b>Интеллект</b><span>90</span><div class="bar"><div style="width:90%"></div></div></div>
-              <div class="app-attr" style="--a:var(--cha)"><i data-lucide="message-circle"></i><b>Харизма</b><span>47</span><div class="bar"><div style="width:47%"></div></div></div>
-            </div>
-
-            <div class="app-label">Квесты на сегодня <span>5 / 8</span></div>
-            <div class="app-quest mand">
-              <div class="q-ico"><i data-lucide="droplet"></i></div>
-              <div class="q-body"><b>Выпей 2 литра воды</b><span class="q-tag red">Обязательный</span></div>
-              <div class="q-check done"><i data-lucide="check"></i></div>
-            </div>
-            <div class="app-quest" style="--a:var(--str)">
-              <div class="q-ico"><i data-lucide="dumbbell"></i></div>
-              <div class="q-body"><b>100 отжиманий</b><span class="q-tag">Счётчик · 64 / 100</span></div>
-              <div class="q-check"></div>
-            </div>
-            <div class="app-quest" style="--a:var(--per)">
-              <div class="q-ico"><i data-lucide="eye"></i></div>
-              <div class="q-body"><b>20 минут без гаджетов</b><span class="q-tag">Таймер · 12:40</span></div>
-              <div class="q-check"></div>
-            </div>
-
-            <div class="app-tabs">
-              <span class="on"><i data-lucide="shield"></i>Герой</span>
-              <span><i data-lucide="scroll-text"></i>Квесты</span>
-              <span><i data-lucide="store"></i>Магазин</span>
-            </div>
+            <div class="s-lbl">Квесты на сегодня <span>5 / 8</span></div>
+            <div class="s-q m" style="--c:var(--scr-red)"><i><i data-lucide="droplet"></i></i><div><strong>Выпей 2 литра воды</strong><small>Обязательный</small></div><span class="box ok"><i data-lucide="check"></i></span></div>
+            <div class="s-q" style="--c:var(--p-str)"><i><i data-lucide="dumbbell"></i></i><div><strong>100 отжиманий</strong><small>Счётчик · 64 / 100</small></div><span class="box"></span></div>
+            <div class="s-q" style="--c:var(--p-per)"><i><i data-lucide="eye"></i></i><div><strong>20 минут без гаджетов</strong><small>Таймер · 12:40</small></div><span class="box"></span></div>
+            <div class="s-nav"><span class="on"><i data-lucide="shield"></i>Герой</span><span><i data-lucide="scroll-text"></i>Квесты</span><span><i data-lucide="store"></i>Магазин</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ Бегущая строка квестов ═══════════ -->
-  <section class="ticker" aria-label="Примеры квестов">
-    <div class="ticker-row" data-ticker>
-      <span style="--a:var(--str)">100 отжиманий</span>
-      <span style="--a:var(--agi)">10 минут прыжков джек</span>
-      <span style="--a:var(--per)">20 минут без гаджетов</span>
-      <span style="--a:var(--sta)">20-минутная пробежка</span>
-      <span style="--a:var(--int)">20 минут обучения новому навыку</span>
-      <span style="--a:var(--cha)">10 минут репетиции речи</span>
-      <span style="--a:var(--str)">25 бёрпи</span>
-      <span style="--a:var(--agi)">50 прыжков через скамью</span>
-    </div>
-    <div class="ticker-row rev" data-ticker>
-      <span style="--a:var(--per)">30 минут чтения вслух</span>
-      <span style="--a:var(--sta)">35 минут скандинавской ходьбы</span>
-      <span style="--a:var(--int)">20 минут ментальной арифметики</span>
-      <span style="--a:var(--cha)">30 минут встречи с друзьями</span>
-      <span style="--a:var(--per)">10 минут тактильных ощущений</span>
-      <span style="--a:var(--cha)">15 минут языка тела</span>
-      <span style="--a:var(--gold)">Еженедельно: день без телефона</span>
-      <span style="--a:var(--gold)">Еженедельно: холодный душ 5 дней</span>
-    </div>
-  </section>
-
-  <!-- ═══════════ Цифры ═══════════ -->
-  <section class="numbers">
-    <div class="wrap numbers-grid">
-      <div class="num reveal"><b data-count="6">6</b><span>характеристик</span></div>
-      <div class="num reveal"><b data-count="10">10</b><span>рангов</span></div>
-      <div class="num reveal"><b data-count="4">4</b><span>вида сундуков</span></div>
-      <div class="num reveal"><b data-count="8">8</b><span>улучшений в магазине</span></div>
-      <div class="num reveal"><b>~2</b><span>года до ранга «Бог»</span></div>
-    </div>
-  </section>
-
-  <!-- ═══════════ Как это работает ═══════════ -->
-  <section class="section" id="how">
+  <!-- Характеристики -->
+  <section class="sec" id="attrs" style="padding-top:40px">
     <div class="wrap">
-      <div class="head reveal">
-        <span class="kicker">Как это работает</span>
-        <h2>Три шага, и жизнь становится игрой</h2>
+      <div class="sec-head">
+        <span class="eyebrow">Характеристики</span>
+        <h2>Шесть цветов. Шесть сторон тебя.</h2>
+        <p>Каждый квест качает одну из характеристик. Самую слабую видно сразу, и задания подтягивают именно её.</p>
       </div>
-      <div class="steps">
-        <article class="card step reveal">
-          <div class="step-n">1</div>
-          <div class="step-ico" style="--a:var(--cyan)"><i data-lucide="alarm-clock"></i></div>
-          <h3>Выбери время</h3>
-          <p>Квесты обновляются каждый день в удобный тебе час. Напоминание придёт заранее, чтобы ничего не сгорело.</p>
-        </article>
-        <article class="card step reveal">
-          <div class="step-n">2</div>
-          <div class="step-ico" style="--a:var(--green)"><i data-lucide="swords"></i></div>
-          <h3>Выполняй квесты</h3>
-          <p>Каждый день: задания на все шесть характеристик и один обязательный. Подтверждай таймером, счётчиком или отметкой дней.</p>
-        </article>
-        <article class="card step reveal">
-          <div class="step-n">3</div>
-          <div class="step-ico" style="--a:var(--gold)"><i data-lucide="trending-up"></i></div>
-          <h3>Расти</h3>
-          <p>Очки качают характеристики, опыт поднимает уровень. Набери порог, пройди испытание и получи новый ранг.</p>
-        </article>
+      <div class="attrs">
+        <article class="attr" style="--c:var(--orange);--ce:var(--orange-e)"><span class="ic"><i data-lucide="dumbbell"></i></span><h3>Сила</h3><p>Физическая мощь и мышцы.</p><span class="ex"><i data-lucide="target"></i>100 отжиманий</span></article>
+        <article class="attr" style="--c:var(--green);--ce:var(--green-e)"><span class="ic"><i data-lucide="footprints"></i></span><h3>Ловкость</h3><p>Координация, реакция и гибкость.</p><span class="ex"><i data-lucide="target"></i>50 прыжков через скамью</span></article>
+        <article class="attr" style="--c:var(--blue);--ce:var(--blue-e)"><span class="ic"><i data-lucide="eye"></i></span><h3>Восприятие</h3><p>Осознанность и внимание к деталям.</p><span class="ex"><i data-lucide="target"></i>20 минут без гаджетов</span></article>
+        <article class="attr" style="--c:var(--purple);--ce:var(--purple-e)"><span class="ic"><i data-lucide="heart-pulse"></i></span><h3>Выносливость</h3><p>Долгие нагрузки без усталости.</p><span class="ex"><i data-lucide="target"></i>20-минутная пробежка</span></article>
+        <article class="attr" style="--c:var(--indigo);--ce:var(--indigo-e)"><span class="ic"><i data-lucide="brain"></i></span><h3>Интеллект</h3><p>Логика, обучаемость, новые навыки.</p><span class="ex"><i data-lucide="target"></i>20 минут ментальной арифметики</span></article>
+        <article class="attr" style="--c:var(--pink);--ce:var(--pink-e)"><span class="ic"><i data-lucide="message-circle"></i></span><h3>Харизма</h3><p>Уверенность в общении.</p><span class="ex"><i data-lucide="target"></i>10 минут репетиции речи</span></article>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ Характеристики ═══════════ -->
-  <section class="section" id="stats">
-    <div class="wrap stats-grid">
-      <div class="stats-left">
-        <div class="head left reveal">
-          <span class="kicker">Характеристики</span>
-          <h2>Шесть сторон тебя</h2>
-          <p class="sub">Квесты прокачивают тело, ум и общение. Слабую сторону видно сразу, и система подкинет задания именно на неё.</p>
-        </div>
-        <div class="radar-card card reveal">
-          <svg class="radar" viewBox="-28 0 376 320" role="img" aria-label="Диаграмма шести характеристик">
-            <g class="radar-grid"></g>
-            <polygon class="radar-shape" points=""></polygon>
-            <g class="radar-dots"></g>
-            <g class="radar-labels"></g>
-          </svg>
-          <button class="btn btn-cyan btn-block" id="radar-btn" type="button"><i data-lucide="zap"></i>Выполнить квесты дня</button>
-          <p class="radar-note" id="radar-note">Нажми и посмотри, как растёт герой</p>
-        </div>
-      </div>
-      <div class="attr-list">
-        <article class="card attr reveal" data-attr="0" style="--a:var(--str)">
-          <div class="attr-ico"><i data-lucide="dumbbell"></i></div>
-          <div><h3>Сила</h3><p>Физическая мощь: отжимания, приседания, бёрпи.</p></div>
-        </article>
-        <article class="card attr reveal" data-attr="1" style="--a:var(--agi)">
-          <div class="attr-ico"><i data-lucide="footprints"></i></div>
-          <div><h3>Ловкость</h3><p>Координация, скорость реакции и гибкость.</p></div>
-        </article>
-        <article class="card attr reveal" data-attr="2" style="--a:var(--per)">
-          <div class="attr-ico"><i data-lucide="eye"></i></div>
-          <div><h3>Восприятие</h3><p>Осознанность и внимание к деталям.</p></div>
-        </article>
-        <article class="card attr reveal" data-attr="3" style="--a:var(--sta)">
-          <div class="attr-ico"><i data-lucide="heart-pulse"></i></div>
-          <div><h3>Выносливость</h3><p>Бег, ходьба и долгие нагрузки без усталости.</p></div>
-        </article>
-        <article class="card attr reveal" data-attr="4" style="--a:var(--int)">
-          <div class="attr-ico"><i data-lucide="brain"></i></div>
-          <div><h3>Интеллект</h3><p>Логика, обучаемость и новые навыки.</p></div>
-        </article>
-        <article class="card attr reveal" data-attr="5" style="--a:var(--cha)">
-          <div class="attr-ico"><i data-lucide="message-circle"></i></div>
-          <div><h3>Харизма</h3><p>Уверенность в общении и умение находить общий язык.</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ Ранги ═══════════ -->
-  <section class="section" id="ranks">
+  <!-- Как играть -->
+  <section class="sec band blue" id="day">
     <div class="wrap">
-      <div class="head reveal">
-        <span class="kicker">Ранги</span>
-        <h2>От Новичка до Бога</h2>
-        <p class="sub">Десять рангов. Чтобы подняться, нужно набрать уровень, прокачать характеристики и пройти испытание ранга на время.</p>
+      <div class="sec-head">
+        <span class="eyebrow">Как играть</span>
+        <h2>Один день героя</h2>
+        <p>Всё устроено как в хорошей игре: задание, проверка, награда. Каждый день заново.</p>
       </div>
-      <ol class="ranks">
-        <li style="--r:#8FA3B0"><div class="rank-hex">1</div><b>Новичок</b><span>старт</span></li>
-        <li style="--r:#58CC02"><div class="rank-hex">2</div><b>Ученик</b><span>первые шаги</span></li>
-        <li style="--r:#14B8A6"><div class="rank-hex">3</div><b>Адепт</b><span>с 13 уровня</span></li>
-        <li style="--r:#1CB0F6"><div class="rank-hex">4</div><b>Рыцарь</b><span>с 20 уровня</span></li>
-        <li style="--r:#6C7BFF"><div class="rank-hex">5</div><b>Мастер</b><span>с 29 уровня</span></li>
-        <li style="--r:#CE82FF"><div class="rank-hex">6</div><b>Герой</b><span>с 40 уровня</span></li>
-        <li style="--r:#FF5FA2"><div class="rank-hex">7</div><b>Легенда</b><span>с 54 уровня</span></li>
-        <li style="--r:#FF4B4B"><div class="rank-hex">8</div><b>Миф</b><span>с 72 уровня</span></li>
-        <li style="--r:#FF9600"><div class="rank-hex">9</div><b>Титан</b><span>с 92 уровня</span></li>
-        <li style="--r:#FFC800" class="god"><div class="rank-hex">10</div><b>Бог</b><span>со 114 уровня</span></li>
+      <ol class="day">
+        <li><i data-lucide="alarm-clock"></i><h3>Квесты обновились</h3><p>В выбранное тобой время приходят новые задания на все шесть характеристик и один обязательный.</p></li>
+        <li><i data-lucide="timer"></i><h3>Выполняешь</h3><p>Таймер, счётчик повторений или отметка дней. Раньше времени квест не закроется.</p></li>
+        <li><i data-lucide="trending-up"></i><h3>Получаешь награды</h3><p>Очки характеристик, опыт героя и монеты L. Награда зависит от сложности.</p></li>
+        <li><i data-lucide="gift"></i><h3>Открываешь сундук</h3><p>Копишь монеты и испытываешь удачу: от пары очков до легендарной награды.</p></li>
       </ol>
-      <div class="trial card reveal">
-        <div class="trial-ico"><i data-lucide="hourglass"></i></div>
-        <div>
-          <h3>Испытание ранга</h3>
-          <p>Перед новым рангом система бросает вызов: от 30 минут до 2 часов тренировки с упором на самую слабую характеристику. Таймер не обманешь.</p>
+    </div>
+  </section>
+
+  <!-- Ранги -->
+  <section class="sec" id="path">
+    <div class="wrap path-grid">
+      <div class="path-info">
+        <span class="eyebrow">Ранги</span>
+        <h2>Путь от Новичка до Бога</h2>
+        <p>Десять рангов, и каждый нужно заслужить. Весь путь занимает около двух лет ежедневной игры.</p>
+        <div class="req">
+          <div style="--c:var(--blue)"><i><i data-lucide="chevrons-up"></i></i><p><b>Уровень героя</b><span>Для ранга «Рыцарь» нужен 20 уровень</span></p></div>
+          <div style="--c:var(--orange)"><i><i data-lucide="hexagon"></i></i><p><b>Порог характеристик</b><span>Прокачай характеристики до 100 очков</span></p></div>
+          <div style="--c:var(--red)"><i><i data-lucide="hourglass"></i></i><p><b>Испытание ранга</b><span>50 минут тренировки на самую слабую сторону</span></p></div>
         </div>
-        <span class="trial-tag">ИСПЫТАНИЕ</span>
       </div>
+      <ol class="path" aria-label="Ранги">
+        <li class="node done" style="--x:0px"><span class="hx"><span><i data-lucide="check"></i></span></span><span class="nm">Новичок</span><span class="lv">старт</span></li>
+        <li class="node done" style="--x:70px"><span class="hx"><span><i data-lucide="check"></i></span></span><span class="nm">Ученик</span><span class="lv">ранг 2</span></li>
+        <li class="node now" style="--x:100px"><span class="here">Ты здесь</span><span class="hx"><span><i data-lucide="star"></i></span></span><span class="nm">Адепт</span><span class="lv">с 13 уровня</span></li>
+        <li class="node lock" style="--x:60px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Рыцарь</span><span class="lv">с 20 уровня</span></li>
+        <li class="node lock" style="--x:-10px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Мастер</span><span class="lv">с 29 уровня</span></li>
+        <li class="node lock" style="--x:-80px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Герой</span><span class="lv">с 40 уровня</span></li>
+        <li class="node lock" style="--x:-100px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Легенда</span><span class="lv">с 54 уровня</span></li>
+        <li class="node lock" style="--x:-50px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Миф</span><span class="lv">с 72 уровня</span></li>
+        <li class="node lock" style="--x:30px"><span class="hx"><span><i data-lucide="lock"></i></span></span><span class="nm">Титан</span><span class="lv">с 92 уровня</span></li>
+        <li class="node god" style="--x:60px"><span class="hx"><span><i data-lucide="crown"></i></span></span><span class="nm">Бог</span><span class="lv">со 114 уровня</span></li>
+      </ol>
     </div>
   </section>
 
-  <!-- ═══════════ Возможности квестов ═══════════ -->
-  <section class="section" id="quests">
+  <!-- Награды -->
+  <section class="sec band violet" id="loot">
     <div class="wrap">
-      <div class="head reveal">
-        <span class="kicker">Квесты</span>
-        <h2>Задания, которые растут вместе с тобой</h2>
+      <div class="sec-head">
+        <span class="eyebrow">Награды</span>
+        <h2>Монеты, сундуки и немного удачи</h2>
+        <p>Выбери сундук и открой его. Шансы такие же, как в приложении.</p>
       </div>
-      <div class="features">
-        <article class="card feat reveal" style="--a:var(--cyan)">
-          <i data-lucide="gauge"></i><h3>Сложность по рангу</h3>
-          <p>Чем выше ранг, тем серьёзнее задания. Награда зависит от сложности квеста.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--red)">
-          <i data-lucide="triangle-alert"></i><h3>Обязательный квест</h3>
-          <p>Сон, вода, свежий воздух, добрые дела. Пропустишь — получишь штраф.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--gold)">
-          <i data-lucide="calendar-range"></i><h3>Еженедельный вызов</h3>
-          <p>День без телефона, три дня без сахара, подъём в 6 утра пять дней подряд.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--green)">
-          <i data-lucide="square-pen"></i><h3>Свой квест</h3>
-          <p>Добавь собственное дело, до трёх в день. За него начисляется опыт.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--purple)">
-          <i data-lucide="refresh-cw"></i><h3>Замены</h3>
-          <p>Не нравится задание — замени. Три замены в день, а с «Пером феникса» без лимита.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--orange)">
-          <i data-lucide="sun"></i><h3>Воскресенье ×2</h3>
-          <p>По воскресеньям награды и штрафы удваиваются. Рискнёшь?</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--blue)">
-          <i data-lucide="timer"></i><h3>Честная проверка</h3>
-          <p>Таймер, счётчик повторений или отметка дней. Раньше времени квест не закроется.</p>
-        </article>
-        <article class="card feat reveal" style="--a:var(--pink)">
-          <i data-lucide="bell-ring"></i><h3>Напоминания</h3>
-          <p>Уведомление за несколько часов до обновления, чтобы успеть закрыть день.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ Сундуки и магазин ═══════════ -->
-  <section class="section" id="loot">
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="kicker">Награды</span>
-        <h2>Монеты, сундуки и рулетка наград</h2>
-        <p class="sub">За квесты и серию дней падают монеты&nbsp;L. Трать их на сундуки со случайной наградой или на постоянные улучшения героя.</p>
-      </div>
-
-      <div class="loot-grid">
-        <div class="card chest-demo reveal">
-          <div class="chest-tabs" role="tablist" aria-label="Тип сундука">
-            <button role="tab" data-chest="common" aria-selected="true">Обычный<span>50 L</span></button>
-            <button role="tab" data-chest="rare" aria-selected="false">Редкий<span>120 L</span></button>
-            <button role="tab" data-chest="epic" aria-selected="false">Эпический<span>250 L</span></button>
-            <button role="tab" data-chest="legendary" aria-selected="false">Легендарный<span>500 L</span></button>
+      <div class="loot">
+        <div class="panel">
+          <div class="tabs" role="tablist" aria-label="Тип сундука">
+            <button role="tab" data-c="common" aria-selected="true">Обычный<small>50 L</small></button>
+            <button role="tab" data-c="rare" aria-selected="false">Редкий<small>120 L</small></button>
+            <button role="tab" data-c="epic" aria-selected="false">Эпический<small>250 L</small></button>
+            <button role="tab" data-c="legendary" aria-selected="false">Легендарный<small>500 L</small></button>
           </div>
-
-          <div class="chest-stage" data-type="common">
-            <div class="chest-rays"></div>
+          <div class="chest-stage" data-c="common" id="stage">
             <svg class="chest" viewBox="0 0 120 104" aria-hidden="true">
-              <ellipse cx="60" cy="98" rx="46" ry="6" fill="#000" opacity=".3"/>
-              <path class="c-body" d="M10 46 h100 v40 a10 10 0 0 1 -10 10 h-80 a10 10 0 0 1 -10 -10z"/>
-              <path class="c-edge" d="M10 80 h100 v6 a10 10 0 0 1 -10 10 h-80 a10 10 0 0 1 -10 -10z"/>
-              <rect class="c-strap" x="24" y="46" width="10" height="50"/>
-              <rect class="c-strap" x="86" y="46" width="10" height="50"/>
-              <g class="c-lid">
-                <path class="c-top" d="M10 48 v-12 a28 28 0 0 1 28 -28 h44 a28 28 0 0 1 28 28 v12z"/>
-                <path class="c-shine" d="M24 26 a20 20 0 0 1 16 -10 h20" />
-                <rect class="c-strap" x="24" y="9" width="10" height="39"/>
-                <rect class="c-strap" x="86" y="9" width="10" height="39"/>
-                <rect class="c-band" x="6" y="42" width="108" height="10" rx="4"/>
+              <ellipse cx="60" cy="98" rx="46" ry="6" fill="#000" opacity=".12"/>
+              <path class="cb" d="M10 46 h100 v40 a10 10 0 0 1 -10 10 h-80 a10 10 0 0 1 -10 -10z"/>
+              <rect class="cs" x="24" y="46" width="10" height="50"/><rect class="cs" x="86" y="46" width="10" height="50"/>
+              <g class="lid">
+                <path class="ct" d="M10 48 v-12 a28 28 0 0 1 28 -28 h44 a28 28 0 0 1 28 28 v12z"/>
+                <path d="M24 26 a20 20 0 0 1 16 -10 h20" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="5" stroke-linecap="round"/>
+                <rect class="cs" x="24" y="9" width="10" height="39"/><rect class="cs" x="86" y="9" width="10" height="39"/>
+                <rect class="cband" x="6" y="42" width="108" height="10" rx="4"/>
               </g>
               <rect x="50" y="38" width="20" height="26" rx="5" fill="#FFD43B" stroke="#8A6400" stroke-width="3"/>
-              <circle cx="60" cy="49" r="3.2" fill="#8A6400"/>
-              <rect x="58.5" y="50" width="3" height="7" rx="1.5" fill="#8A6400"/>
+              <circle cx="60" cy="49" r="3.2" fill="#8A6400"/><rect x="58.5" y="50" width="3" height="7" rx="1.5" fill="#8A6400"/>
             </svg>
             <div class="reward" id="reward" aria-live="polite"></div>
           </div>
-
-          <div class="chest-foot">
-            <p class="chest-name" id="chest-name">Обычный сундук · <em>Сюрприз от системы</em></p>
-            <button class="btn btn-gold btn-block" id="chest-open" type="button"><i data-lucide="key-round"></i>Открыть сундук</button>
+          <button class="btn green" id="open" type="button"><i data-lucide="key-round"></i>Открыть сундук</button>
+        </div>
+        <div class="panel odds">
+          <h3 id="odds-title">Обычный сундук</h3>
+          <p>Шанс выпадения награды каждой редкости</p>
+          <div class="orow" style="--c:var(--common)"><span>Обычная</span><span class="t"><i data-o="0"></i></span><b data-v="0"></b></div>
+          <div class="orow" style="--c:var(--blue)"><span>Редкая</span><span class="t"><i data-o="1"></i></span><b data-v="1"></b></div>
+          <div class="orow" style="--c:var(--purple)"><span>Эпическая</span><span class="t"><i data-o="2"></i></span><b data-v="2"></b></div>
+          <div class="orow" style="--c:var(--orange)"><span>Легендарная</span><span class="t"><i data-o="3"></i></span><b data-v="3"></b></div>
+          <div class="shop">
+            <div style="--c:var(--purple)"><span class="ic"><i data-lucide="book-open"></i></span><span>Книга знаний<em>Опыт героя ×2 навсегда</em></span><b class="p">400 L</b></div>
+            <div style="--c:var(--purple)"><span class="ic"><i data-lucide="shield"></i></span><span>Щит от штрафа<em>Без штрафа за обязательный квест</em></span><b class="p">300 L</b></div>
+            <div style="--c:var(--orange)"><span class="ic"><i data-lucide="feather"></i></span><span>Перо феникса<em>Бесконечные замены квестов</em></span><b class="p">600 L</b></div>
           </div>
         </div>
-
-        <div class="shop reveal">
-          <h3 class="shop-title"><i data-lucide="store"></i>Магазин улучшений</h3>
-          <ul class="shop-list">
-            <li style="--rar:var(--common)"><span class="s-ico"><i data-lucide="zap"></i></span><div><b>Малый эликсир силы</b><small>+5 ко всем характеристикам</small></div><span class="price">40 L</span></li>
-            <li style="--rar:var(--rare)"><span class="s-ico"><i data-lucide="zap"></i></span><div><b>Большой эликсир силы</b><small>+10 ко всем характеристикам</small></div><span class="price">90 L</span></li>
-            <li style="--rar:var(--common)"><span class="s-ico"><i data-lucide="ticket"></i></span><div><b>Счастливый билетик</b><small>+1 замена квеста на сегодня</small></div><span class="price">15 L</span></li>
-            <li style="--rar:var(--rare)"><span class="s-ico"><i data-lucide="square-plus"></i></span><div><b>Слот для квеста</b><small>+1 ежедневный квест навсегда</small></div><span class="price">150 L</span></li>
-            <li style="--rar:var(--epic)"><span class="s-ico"><i data-lucide="shield"></i></span><div><b>Щит от штрафа</b><small>Отменяет штраф за обязательный квест</small></div><span class="price">300 L</span></li>
-            <li style="--rar:var(--epic)"><span class="s-ico"><i data-lucide="book-open"></i></span><div><b>Книга знаний</b><small>Опыт героя ×2 навсегда</small></div><span class="price">400 L</span></li>
-            <li style="--rar:var(--legendary)"><span class="s-ico"><i data-lucide="feather"></i></span><div><b>Перо феникса</b><small>Бесконечные замены квестов</small></div><span class="price">600 L</span></li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ Дисциплина ═══════════ -->
-  <section class="section" id="discipline">
-    <div class="wrap disc-grid">
-      <div class="head left reveal">
-        <span class="kicker">Дисциплина</span>
-        <h2>Система не прощает лени</h2>
-        <p class="sub">Закрыл все квесты — серия растёт. Пропустил день — минус ко всем характеристикам, и серия начинается заново. Так привычка и закрепляется.</p>
-        <div class="disc-levels">
-          <span>Новичок</span><span>Знаток · 7 дн.</span><span>Эксперт · 14 дн.</span><span>Мастер · 21 дн.</span><span class="g">Бог дисциплины · 28 дн.</span>
-        </div>
-      </div>
-      <div class="card streak reveal">
-        <div class="streak-top">
-          <div class="streak-fire"><i data-lucide="flame"></i></div>
-          <div><b>12 дней подряд</b><span>Эксперт: 12 / 14 дней</span></div>
-        </div>
-        <div class="week">
-          <span class="d ok">Пн</span><span class="d ok">Вт</span><span class="d ok">Ср</span><span class="d ok">Чт</span><span class="d ok">Пт</span><span class="d ok">Сб</span><span class="d now">Вс<em>×2</em></span>
-        </div>
-        <div class="unlocks">
-          <div><i data-lucide="badge"></i><b>Статус</b><span>50 ур.</span></div>
-          <div><i data-lucide="briefcase"></i><b>Профессия</b><span>75 ур.</span></div>
-          <div><i data-lucide="crown"></i><b>Мастер всех стихий</b><span>150 ур.</span></div>
-        </div>
-        <p class="motto">«Ты стал на 1% лучше, чем вчера. Так держать!»</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ Вопросы ═══════════ -->
-  <section class="section" id="faq">
-    <div class="wrap faq-wrap">
-      <div class="head reveal">
-        <span class="kicker">Вопросы</span>
-        <h2>Коротко о главном</h2>
-      </div>
-      <div class="faq">
-        <details class="card reveal" open>
-          <summary>Где скачать приложение?</summary>
-          <p>Ссылка на скачивание появится на этой странице, в разделе «Скачать». Сейчас приложение готовится к релизу.</p>
-        </details>
-        <details class="card reveal">
-          <summary>Какие телефоны поддерживаются?</summary>
-          <p>Android 7.0 и новее. Версии для iPhone пока нет.</p>
-        </details>
-        <details class="card reveal">
-          <summary>Нужен ли интернет?</summary>
-          <p>Нет. Приложение не запрашивает доступ к сети, весь прогресс хранится на телефоне. Аккаунт и регистрация не нужны.</p>
-        </details>
-        <details class="card reveal">
-          <summary>Есть ли реклама?</summary>
-          <p>Нет. Никаких баннеров и роликов между квестами.</p>
-        </details>
-        <details class="card reveal">
-          <summary>Что будет, если пропустить день?</summary>
-          <p>Все характеристики получат штраф, а серия дней обнулится. Невыполненный обязательный квест тоже штрафуется. Совет: выбери время обновления квестов, которое тебе удобно.</p>
-        </details>
-        <details class="card reveal">
-          <summary>Можно добавить свои задачи?</summary>
-          <p>Да, до трёх своих квестов в день. Они дают опыт героя, но не очки характеристик и монеты, чтобы баланс оставался честным.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ Скачать ═══════════ -->
-  <section class="section" id="download">
+  <!-- Правила -->
+  <section class="sec">
     <div class="wrap">
-      <div class="dl card reveal">
-        <div class="dl-glow" aria-hidden="true"></div>
-        <img class="dl-logo" src="assets/logo.svg" alt="" width="96" height="104">
-        <h2>Начни свою историю героя</h2>
-        <p class="sub">Life RPG для Android. Скачай, выбери время обновления квестов и получи первые задания уже сегодня.</p>
-        <div class="dl-btns">
-          <a class="btn btn-green btn-lg" data-download="apk" href="#download"><i data-lucide="download"></i><span>Скачать APK</span></a>        </div>
-        <p class="dl-meta">Версия 1.0.0 · Android 7.0+ · около 12 МБ</p>
-        <p class="dl-soon" id="dl-soon" hidden><i data-lucide="hourglass"></i>Скоро релиз — ссылка появится здесь</p>
+      <div class="sec-head c">
+        <span class="eyebrow">Правила</span>
+        <h2>Честная игра без поблажек</h2>
+      </div>
+      <div class="rules">
+        <article class="rule" style="--c:var(--orange)"><div class="big">×2</div><h3>Воскресенье</h3><p>По воскресеньям награды и штрафы удваиваются. Самый азартный день недели.</p></article>
+        <article class="rule" style="--c:var(--red)"><div class="big">0</div><h3>Пропуск дня</h3><p>Не закрыл день — штраф ко всем характеристикам, а серия обнуляется и начинается заново.</p></article>
+        <article class="rule" style="--c:var(--orange)"><div class="big">12</div><h3>Серия дней</h3><p>Каждые 7 дней подряд — новая ступень дисциплины. На 28-й ты Бог дисциплины.</p>
+          <div class="week"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span class="x">Вс</span></div></article>
       </div>
     </div>
   </section>
 
+  <!-- Вопросы -->
+  <section class="sec" id="faq" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head c"><span class="eyebrow">Вопросы</span><h2>Коротко о главном</h2></div>
+      <div class="faq">
+        <details open><summary>Где скачать приложение?</summary><p>Ссылка появится на этой странице в день релиза. Приложение распространяется файлом APK.</p></details>
+        <details><summary>Какие телефоны поддерживаются?</summary><p>Android 7.0 и новее. Версии для iPhone пока нет.</p></details>
+        <details><summary>Нужен ли интернет?</summary><p>Нет. Весь прогресс хранится на телефоне, аккаунт не нужен.</p></details>
+        <details><summary>Есть ли реклама?</summary><p>Нет, ни баннеров, ни роликов.</p></details>
+        <details><summary>Можно добавить свои задачи?</summary><p>Да, до трёх своих квестов в день. За них начисляется опыт героя.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Скачать -->
+  <section class="sec band green final" id="get">
+    <div class="wrap">
+      <img src="assets/logo.svg" alt="">
+      <h2>Готов начать игру?</h2>
+      <p>Скачай Life RPG, выбери время обновления квестов и получи первые задания уже сегодня.</p>
+      <div class="cta"><a class="btn white lg" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a></div>
+      <p class="meta">Версия 1.0.0 · Android 7.0+ · около 12 МБ</p>
+    </div>
+  </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <a href="#top" class="brand"><img src="assets/logo.svg" alt="" width="28" height="30"><span>Life RPG</span></a>
-    <p>Разработчик <b>_vladikkr_</b> · © 2026</p>
-    <a href="#top" class="to-top">Наверх <i data-lucide="arrow-up"></i></a>
-  </div>
-</footer>
-
+<footer><div class="wrap"><a class="brand" href="#top"><img src="assets/logo.svg" alt="">Life RPG</a><span>Разработчик _vladikkr_ · © 2026</span></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
