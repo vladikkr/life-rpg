@@ -2,19 +2,25 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+  <!-- Защита: скрипты, стили, шрифты и видео — только с этого сайта; из внешнего — только счётчик скачиваний GitHub -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Life RPG — прокачай свою жизнь</title>
-  <meta name="description" content="Life RPG превращает жизнь в игру: ежедневные квесты, 6 характеристик, 10 рангов, сундуки и монеты. Для Android, без интернета и рекламы.">
+  <meta name="description" content="Life RPG превращает жизнь в игру: ежедневные квесты, 6 характеристик, 10 рангов, сундуки и монеты. Для Android, без интернета и рекламы. Неделя Pro в подарок.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F6F9FC" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0F1923" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Life RPG — прокачай свою жизнь">
-  <meta property="og:description" content="Ежедневные квесты, 6 характеристик и 10 рангов от Новичка до Бога.">
+  <meta property="og:description" content="Ежедневные квесты, 6 характеристик и 10 рангов от Новичка до Бога. Скачай APK бесплатно.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vladikkr.github.io/life-rpg/">
+  <meta property="og:image" content="https://vladikkr.github.io/life-rpg/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://vladikkr.github.io/life-rpg/">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/rubik-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,7 +29,7 @@
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/logo.svg" alt="">Life RPG</a>
     <nav class="links" aria-label="Разделы">
-      <a href="#attrs">Характеристики</a><a href="#day">Как играть</a><a href="#path">Ранги</a><a href="#loot">Награды</a><a href="#faq">Вопросы</a>
+      <a href="#video">Анонс</a><a href="#features">Возможности</a><a href="#path">Ранги</a><a href="#pro">Pro</a><a href="#install">Установка</a><a href="#faq">Вопросы</a>
     </nav>
     <a class="btn green" href="#get">Скачать</a>
   </div>
@@ -35,13 +41,14 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <span class="tag"><b></b>Версия 1.0 для Android</span>
+        <span class="tag"><b></b>Вышла версия <span data-version>1.0.1</span> для Android</span>
         <h1>Прокачай свою <span class="u">жизнь<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 12" fill="none" stroke="#58CC02" stroke-width="7" stroke-linecap="round"/></svg></span></h1>
         <p class="lead">Ежедневные квесты, шесть характеристик и десять рангов от Новичка до Бога. Игра, в которой прокачиваешься ты сам.</p>
         <div class="cta">
           <a class="btn green lg" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a>
-          <a class="btn ghost lg" href="#day">Как это работает</a>
+          <a class="btn ghost lg" href="#video"><i data-lucide="play"></i>Смотреть анонс</a>
         </div>
+        <p class="dl-count" data-dl hidden><i data-lucide="users"></i><span>Скачали уже <b data-dl-count>0</b> <span data-dl-word>раз</span></span></p>
         <div class="facts">
           <span><i data-lucide="wifi-off"></i>Без интернета</span>
           <span><i data-lucide="ban"></i>Без рекламы</span>
@@ -78,8 +85,30 @@
     </div>
   </section>
 
+  <!-- Анонс -->
+  <section class="sec" id="video" style="padding-top:40px">
+    <div class="wrap video-grid">
+      <div class="video-box">
+        <video controls playsinline preload="none" poster="assets/announce-poster.jpg" width="1080" height="1920">
+          <source src="assets/announce.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <span class="eyebrow">Анонс</span>
+        <h2>Life RPG вышла</h2>
+        <p class="lead">Коротко о том, как устроена игра: квесты дня, характеристики, ранги, сундуки и Система.</p>
+        <ul class="ticks">
+          <li><i data-lucide="check"></i>Бесплатно, без рекламы и регистрации</li>
+          <li><i data-lucide="check"></i>Работает без интернета, данные только на телефоне</li>
+          <li><i data-lucide="check"></i>Неделя Pro в подарок</li>
+        </ul>
+        <div class="cta"><a class="btn green" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Характеристики -->
-  <section class="sec" id="attrs" style="padding-top:40px">
+  <section class="sec" id="attrs">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Характеристики</span>
@@ -111,6 +140,25 @@
         <li><i data-lucide="trending-up"></i><h3>Получаешь награды</h3><p>Очки характеристик, опыт героя и монеты L. Награда зависит от сложности.</p></li>
         <li><i data-lucide="gift"></i><h3>Открываешь сундук</h3><p>Копишь монеты и испытываешь удачу: от пары очков до легендарной награды.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <!-- Возможности -->
+  <section class="sec" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Возможности</span>
+        <h2>Не список дел, а игра с правилами</h2>
+        <p>Квест не закрыть одной кнопкой: приложение проверяет, что ты его правда сделал.</p>
+      </div>
+      <div class="attrs feats">
+        <article class="attr" style="--c:var(--blue);--ce:var(--blue-e)"><span class="ic"><i data-lucide="bot"></i></span><h3>Система</h3><p>Чат, который по твоим словам собирает личный квест: «хочу читать по вечерам» — и задание готово.</p></article>
+        <article class="attr" style="--c:var(--orange);--ce:var(--orange-e)"><span class="ic"><i data-lucide="timer"></i></span><h3>Таймер в фоне</h3><p>Идёт, даже если свернуть приложение. Может висеть поверх других программ и звенит по окончании.</p></article>
+        <article class="attr" style="--c:var(--green);--ce:var(--green-e)"><span class="ic"><i data-lucide="footprints"></i></span><h3>Проверка датчиками</h3><p>Шагомер подтверждает прогулки, датчик движения считает приседания. Такой квест даёт +25% опыта.</p></article>
+        <article class="attr" style="--c:var(--pink);--ce:var(--pink-e)"><span class="ic"><i data-lucide="camera"></i></span><h3>Фото-доказательство</h3><p>Для некоторых квестов нужен снимок результата. Старое фото второй раз не примется.</p></article>
+        <article class="attr" style="--c:var(--purple);--ce:var(--purple-e)"><span class="ic"><i data-lucide="calendar-check"></i></span><h3>Вызов недели</h3><p>Большое задание на семь дней, например сутки без телефона. Награда — +2 ко всем характеристикам.</p></article>
+        <article class="attr" style="--c:var(--indigo);--ce:var(--indigo-e)"><span class="ic"><i data-lucide="bell"></i></span><h3>Напоминания</h3><p>Сообщит, если до обновления квестов осталось мало времени, а день ещё не закрыт.</p></article>
+      </div>
     </div>
   </section>
 
@@ -202,9 +250,51 @@
       </div>
       <div class="rules">
         <article class="rule" style="--c:var(--orange)"><div class="big">×2</div><h3>Воскресенье</h3><p>По воскресеньям награды и штрафы удваиваются. Самый азартный день недели.</p></article>
-        <article class="rule" style="--c:var(--red)"><div class="big">0</div><h3>Пропуск дня</h3><p>Не закрыл день — штраф ко всем характеристикам, а серия обнуляется и начинается заново.</p></article>
+        <article class="rule" style="--c:var(--red)"><div class="big">0</div><h3>Пропуск дня</h3><p>Не выполнил обязательный квест — штраф ко всем характеристикам. Не закрыл все квесты дня — серия начинается заново.</p></article>
         <article class="rule" style="--c:var(--orange)"><div class="big">12</div><h3>Серия дней</h3><p>Каждые 7 дней подряд — новая ступень дисциплины. На 28-й ты Бог дисциплины.</p>
           <div class="week"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span class="x">Вс</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pro -->
+  <section class="sec band violet" id="pro">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pro</span>
+        <h2>Неделя Pro в подарок</h2>
+        <p>Pro — расширенная версия с дополнительными бонусами. Попробуй её бесплатно 7 дней: включается в приложении одной кнопкой, без оплаты и без обязательств.</p>
+      </div>
+      <div class="pro-grid">
+        <div class="pro-item"><i data-lucide="snowflake"></i><b>Заморозка серии</b><span>2 раза в месяц пропуск не обнулит серию</span></div>
+        <div class="pro-item"><i data-lucide="gift"></i><b>Сундук каждый день</b><span>Обычный сундук бесплатно раз в сутки</span></div>
+        <div class="pro-item"><i data-lucide="palette"></i><b>Тема «Система»</b><span>Тёмные окна с синим свечением, как в манхве про охотников</span></div>
+        <div class="pro-item"><i data-lucide="zap"></i><b>Задание Системы</b><span>Отжимания, пресс, приседания и бег — растут с рангом</span></div>
+        <div class="pro-item"><i data-lucide="award"></i><b>Ранг охотника</b><span>Буквенный ранг от E до S на карточке героя</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Установка -->
+  <section class="sec" id="install">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Установка</span>
+        <h2>Три шага до первого квеста</h2>
+        <p>Приложение ставится файлом APK, без Google Play. Это обычный способ для Android.</p>
+      </div>
+      <ol class="day steps">
+        <li><i data-lucide="download"></i><h3>Скачай файл</h3><p>Нажми «Скачать APK» на этой странице с телефона. Файл весит около <span data-size>12 МБ</span>.</p></li>
+        <li><i data-lucide="shield-check"></i><h3>Разреши установку</h3><p>Открой файл. Если Android спросит — разреши установку из этого источника (браузера или «Файлов»).</p></li>
+        <li><i data-lucide="smartphone"></i><h3>Открой Life RPG</h3><p>Выбери время обновления квестов, и первые задания придут сразу.</p></li>
+      </ol>
+      <div class="verify">
+        <i data-lucide="file-check"></i>
+        <div>
+          <b>Проверка файла</b>
+          <p>Обновления подписаны тем же ключом и ставятся поверх старой версии — прогресс сохраняется. Контрольная сумма SHA-256 версии <span data-version>1.0.1</span>:</p>
+          <code data-sha>—</code>
+        </div>
       </div>
     </div>
   </section>
@@ -214,11 +304,14 @@
     <div class="wrap">
       <div class="sec-head c"><span class="eyebrow">Вопросы</span><h2>Коротко о главном</h2></div>
       <div class="faq">
-        <details open><summary>Где скачать приложение?</summary><p>Ссылка появится на этой странице в день релиза. Приложение распространяется файлом APK.</p></details>
+        <details open><summary>Это бесплатно?</summary><p>Да. Все квесты, ранги, сундуки и магазин бесплатны, рекламы нет. Pro — платное дополнение, его можно попробовать бесплатно неделю.</p></details>
         <details><summary>Какие телефоны поддерживаются?</summary><p>Android 7.0 и новее. Версии для iPhone пока нет.</p></details>
+        <details><summary>Безопасно ли ставить APK не из Google Play?</summary><p>Файл выкладывает сам разработчик. Приложение не просит доступ к интернету, контактам или файлам — ему просто нечего отправлять. Контрольная сумма файла указана выше.</p></details>
         <details><summary>Нужен ли интернет?</summary><p>Нет. Весь прогресс хранится на телефоне, аккаунт не нужен.</p></details>
-        <details><summary>Есть ли реклама?</summary><p>Нет, ни баннеров, ни роликов.</p></details>
-        <details><summary>Можно добавить свои задачи?</summary><p>Да, до трёх своих квестов в день. За них начисляется опыт героя.</p></details>
+        <details><summary>Как обновить приложение?</summary><p>Скачай новый APK с этой страницы и установи поверх. Удалять старую версию не нужно, иначе прогресс сотрётся.</p></details>
+        <details><summary>Можно добавить свои задачи?</summary><p>Да: до трёх своих квестов в день или личные квесты через чат с Системой.</p></details>
+        <details><summary>Где следить за новостями?</summary><p>В <a href="https://t.me/Life_RGP" target="_blank" rel="noopener noreferrer">Telegram-канале Life RPG</a>: новые версии, квесты недели и ответы на вопросы.</p></details>
+        <details><summary>Что значит «Скачали N раз»?</summary><p>Это число скачиваний файла со страницы релиза на GitHub. Считается автоматически, без слежки за посетителями.</p></details>
       </div>
     </div>
   </section>
@@ -229,16 +322,16 @@
       <img src="assets/logo.svg" alt="">
       <h2>Готов начать игру?</h2>
       <p>Скачай Life RPG, выбери время обновления квестов и получи первые задания уже сегодня.</p>
-      <div class="cta"><a class="btn white lg" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a></div>
-      <p class="meta">Версия 1.0.0 · Android 7.0+ · около 12 МБ</p>
+      <div class="cta"><a class="btn white lg" href="#get" data-download><i data-lucide="download"></i>Скачать APK</a><a class="btn ghost-w lg" href="https://t.me/Life_RGP" target="_blank" rel="noopener noreferrer"><i data-lucide="send"></i>Telegram-канал</a></div>
+      <p class="meta">Версия <span data-version>1.0.1</span> · Android 7.0+ · <span data-size>около 12 МБ</span><span data-dl hidden> · скачали <b data-dl-count>0</b> <span data-dl-word>раз</span></span></p>
     </div>
   </section>
 </main>
 
-<footer><div class="wrap"><a class="brand" href="#top"><img src="assets/logo.svg" alt="">Life RPG</a><span>Разработчик _vladikkr_ · © 2026</span></div></footer>
+<footer><div class="wrap"><a class="brand" href="#top"><img src="assets/logo.svg" alt="">Life RPG</a><span><a href="https://t.me/Life_RGP" target="_blank" rel="noopener noreferrer">Telegram-канал</a> · Разработчик _vladikkr_ · © 2026</span></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script src="assets/icons.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

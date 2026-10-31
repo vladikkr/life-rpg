@@ -1,3 +1,37 @@
+/* Шрифты Unbounded и Rubik (SIL Open Font License), лежат на сайте — без запросов к Google */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/rubik-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/rubik-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("assets/fonts/unbounded-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("assets/fonts/unbounded-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ══════════════════════════════════════════════════════════════
    Life RPG — сайт в стиле «Аркада».
    Светлая и тёмная темы переключаются сами по настройкам браузера
@@ -17,7 +51,7 @@
   --line: #E0E8EF;
   --line-2: #CFDBE5;
   --nav-bg: rgba(255, 255, 255, .92);
-  --green-ink: #3B8C00;
+  --green-ink: #2F7A00;
   --tag-bg: #E7F8D6;
   --tag-ink: #2F7A00;
   --price-bg: #FFF6D6;
@@ -36,9 +70,9 @@
   --shadow: rgba(20, 34, 45, .45);
 
   /* полосы-разделы */
-  --band-blue: #1899D6;
+  --band-blue: #0B78AE;
   --band-violet: #7B4FD6;
-  --band-green: #46A302;
+  --band-green: #327A00;
 
   /* экран приложения в макете телефона — светлая тема приложения */
   --scr-bg: #F0F6FA;
@@ -103,7 +137,7 @@
     --shadow: rgba(0, 0, 0, .6);
     --band-blue: #146FA0;
     --band-violet: #5A3AAE;
-    --band-green: #3A8A02;
+    --band-green: #327A00;
     --scr-bg: #0F1923;
     --scr-card: #1B2B3C;
     --scr-line: #2B4157;
@@ -149,7 +183,7 @@
   --shadow: rgba(0, 0, 0, .6);
   --band-blue: #146FA0;
   --band-violet: #5A3AAE;
-  --band-green: #3A8A02;
+  --band-green: #327A00;
   --scr-bg: #0F1923;
   --scr-card: #1B2B3C;
   --scr-line: #2B4157;
@@ -190,7 +224,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .btn:hover { filter: brightness(1.05); }
 .btn:active { transform: translateY(5px); box-shadow: 0 0 0 var(--e); }
 .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-.btn.green { --f: var(--green); --e: var(--green-e); --t: #FFFFFF; }
+.btn.green { --f: var(--green); --e: var(--green-e); --t: #14222D; }
 .btn.ghost { border-color: var(--line-2); }
 .btn.white { --f: #FFFFFF; --e: rgba(0, 0, 0, .22); --t: #14222D; }
 .btn.lg { padding: 20px 32px; font-size: 16px; border-radius: 18px; }
@@ -308,7 +342,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .band.violet { background: var(--band-violet); }
 .band.green { background: var(--band-green); }
 .band .eyebrow { color: rgba(255, 255, 255, .85); }
-.band .sec-head p { color: rgba(255, 255, 255, .9); }
+.band .sec-head p { color: #FFFFFF; }
 
 /* День героя */
 .day { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: s; padding: 0; margin: 0; }
@@ -415,7 +449,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .final h2 { font-size: clamp(36px, 5.4vw, 64px); }
 .final p { margin: 18px auto 0; max-width: 560px; font-size: 19px; color: rgba(255, 255, 255, .92); }
 .final .cta { justify-content: center; }
-.final .meta { margin-top: 22px; font-size: 15px; color: rgba(255, 255, 255, .82); }
+.final .meta { margin-top: 22px; font-size: 15px; color: #FFFFFF; }
 
 footer { padding: 34px 0 44px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -424,6 +458,46 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 .toast.show { translate: -50% 0; visibility: visible; transition: translate .35s cubic-bezier(.2, 1.3, .4, 1); }
 
 /* ── Адаптив ── */
+
+/* Кнопка на зелёной полосе */
+.btn.ghost-w { background: transparent; color: #FFFFFF; border: 2px solid rgba(255, 255, 255, .7); box-shadow: 0 5px 0 rgba(0, 0, 0, .18); }
+.btn.ghost-w:hover { background: rgba(255, 255, 255, .12); }
+.faq details p a, footer a:not(.brand) { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+footer a:not(.brand) { display: inline-block; padding: 12px 4px; margin: -12px 0; } /* палец попадает легче */
+
+/* Счётчик скачиваний */
+.dl-count { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-weight: 600; color: var(--muted); }
+.dl-count svg { color: var(--green); }
+.dl-count b { color: var(--ink); font-family: var(--display); font-weight: 800; }
+[hidden] { display: none !important; }
+
+/* Анонс */
+.video-grid { display: grid; grid-template-columns: 360px 1fr; gap: 56px; align-items: center; }
+.video-box { border-radius: 30px; overflow: hidden; background: var(--bezel); border: 8px solid var(--bezel); box-shadow: 0 10px 0 var(--bezel-e); aspect-ratio: 9 / 16; }
+.video-box video { display: block; width: 100%; height: 100%; object-fit: cover; background: #0F1923; }
+.video-grid h2 { margin: 6px 0 14px; }
+.ticks { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; gap: 10px; }
+.ticks li { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.ticks svg { flex: none; color: var(--green); }
+
+/* Возможности */
+.feats .attr p { margin-bottom: 0; }
+
+/* Pro */
+.pro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+.pro-item { display: grid; gap: 8px; align-content: start; padding: 22px 20px; border-radius: var(--r); background: rgba(255, 255, 255, .12); border: 2px solid rgba(255, 255, 255, .22); }
+.pro-item svg { width: 30px; height: 30px; color: var(--gold); }
+.pro-item b { font: 700 17px var(--display); }
+.pro-item span { font-size: 15px; color: rgba(255, 255, 255, .88); }
+
+/* Установка */
+.steps { grid-template-columns: repeat(3, 1fr); }
+.steps li { box-shadow: 0 6px 0 var(--line-2); border: 2px solid var(--line); }
+.verify { display: flex; gap: 16px; align-items: flex-start; margin-top: 34px; padding: 20px 22px; border-radius: var(--r); background: var(--surface); border: 2px solid var(--line); }
+.verify > svg { flex: none; width: 30px; height: 30px; color: var(--green); }
+.verify p { color: var(--muted); font-size: 15px; margin: 4px 0 10px; }
+.verify code { display: block; font: 600 13px/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace; word-break: break-all; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); color: var(--ink); user-select: all; }
+
 @media (max-width: 980px) {
   .links { display: none; }
   .hero .wrap, .path-grid, .loot { grid-template-columns: 1fr; }
@@ -432,12 +506,14 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
   .day { grid-template-columns: 1fr 1fr; row-gap: 34px; }
   .path-info { position: static; }
   .stage { min-height: 560px; }
+  .video-grid { grid-template-columns: 1fr; gap: 32px; }
+  .video-box { max-width: 340px; margin: 0 auto; }
 }
 @media (max-width: 600px) {
   body { font-size: 17px; }
   .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .sec { padding: 72px 0; }
-  .attrs, .rules, .day { grid-template-columns: 1fr; }
+  .attrs, .rules, .day, .pro-grid { grid-template-columns: 1fr; }
   .cta .btn { width: 100%; }
   .phone { width: 270px; }
   .stage { min-height: 520px; }

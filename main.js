@@ -1,11 +1,12 @@
 /* ══════════════════════════════════════════════
-   Ссылка на скачивание.
-   Когда приложение будет готово к раздаче — впиши сюда адрес APK.
-   Пустая строка = кнопки показывают подсказку «Скоро».
-   Пример: apk: "downloads/life-rpg-1.0.0.apk"
+   Скачивание.
+   APK лежит в релизах GitHub (github.com/vladikkr/life-rpg/releases):
+   там же GitHub сам считает скачивания — их показывает счётчик на странице.
+   Новая версия = новый релиз с файлом LifeRPG.apk; ссылка ниже всегда ведёт на последний.
    ══════════════════════════════════════════════ */
 const DOWNLOAD = {
-  apk: "",
+  repo: "vladikkr/life-rpg",
+  file: "LifeRPG.apk",
 };
 
 (function () {
@@ -26,17 +27,75 @@ const DOWNLOAD = {
   }
 
   /* ── Кнопки скачивания ── */
+  const apkUrl = `https://github.com/${DOWNLOAD.repo}/releases/latest/download/${DOWNLOAD.file}`;
   document.querySelectorAll("[data-download]").forEach((btn) => {
-    if (DOWNLOAD.apk) {
-      btn.href = DOWNLOAD.apk;
-      btn.setAttribute("download", "");
-      return;
-    }
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      toast("Скоро! Ссылка появится в день релиза");
-    });
+    btn.href = apkUrl;
+    btn.rel = "noopener";
+    btn.addEventListener("click", () => toast("Загрузка началась. Открой файл, когда он скачается"));
   });
+
+  /* ── Счётчик скачиваний, версия, размер и SHA-256 из релизов GitHub ── */
+  const CACHE_KEY = "lrpg-release-v1";
+  const CACHE_MS = 10 * 60 * 1000;
+  const plural = (n, one, few, many) => {
+    const a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return one;
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few;
+    return many;
+  };
+  const setText = (sel, text) => document.querySelectorAll(sel).forEach((el) => { el.textContent = text; });
+
+  function render(info) {
+    if (!info) return;
+    if (info.count > 0) {
+      setText("[data-dl-count]", info.count.toLocaleString("ru-RU"));
+      setText("[data-dl-word]", plural(info.count, "раз", "раза", "раз"));
+      document.querySelectorAll("[data-dl]").forEach((el) => { el.hidden = false; });
+    }
+    if (info.version) setText("[data-version]", info.version);
+    if (info.size) setText("[data-size]", `${(info.size / 1048576).toFixed(1).replace(".", ",")} МБ`);
+    if (info.sha) setText("[data-sha]", info.sha);
+  }
+
+  function readCache() {
+    try {
+      const c = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+      return c && Date.now() - c.t < CACHE_MS ? c : null;
+    } catch (_) { return null; }
+  }
+
+  async function loadRelease() {
+    const cached = readCache();
+    if (cached) { render(cached); return; }
+    try {
+      const res = await fetch(`https://api.github.com/repos/${DOWNLOAD.repo}/releases?per_page=100`, {
+        headers: { Accept: "application/vnd.github+json" },
+        referrerPolicy: "no-referrer",
+      });
+      if (!res.ok) return;
+      const list = await res.json();
+      if (!Array.isArray(list)) return;
+      const releases = list.filter((r) => !r.draft && !r.prerelease);
+      const apks = (r) => (r.assets || []).filter((a) => /\.apk$/i.test(a.name));
+      const count = releases.reduce((sum, r) => sum + apks(r).reduce((s, a) => s + (Number(a.download_count) || 0), 0), 0);
+      const latest = releases.find((r) => apks(r).length);
+      const asset = latest && apks(latest)[0];
+      // SHA-256 разработчик пишет в описании релиза строкой «SHA-256: …»
+      const shaMatch = latest && /SHA-256:\s*([0-9a-f]{64})/i.exec(latest.body || "");
+      const info = {
+        t: Date.now(),
+        count,
+        version: latest ? String(latest.tag_name || "").replace(/^v/i, "").slice(0, 20) : "",
+        size: asset ? Number(asset.size) || 0 : 0,
+        sha: shaMatch ? shaMatch[1].toLowerCase() : "",
+      };
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify(info)); } catch (_) {}
+      render(info);
+    } catch (_) {
+      // Нет сети или GitHub недоступен — счётчик просто не показываем
+    }
+  }
+  loadRelease();
 
   /* ── Сундуки: те же шансы, что в приложении (ChestLoot.kt) ── */
   const CHESTS = {
