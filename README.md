@@ -6,15 +6,16 @@
 
 ## Скачивание и счётчик
 
-APK лежит не в этой папке, а в релизах GitHub: `github.com/vladikkr/life-rpg/releases`. Кнопки «Скачать APK» ведут на файл `LifeRPG.apk` последнего релиза. GitHub сам считает скачивания, а `main.js` показывает их сумму по всем релизам («Скачали N раз»), версию, размер и SHA-256 из описания релиза (строка `SHA-256: …`).
+APK лежит не в этой папке, а в релизах GitHub: `github.com/vladikkr/life-rpg/releases`. Кнопки «Скачать APK» ведут на файл `LifeRPG.apk` последнего релиза. GitHub сам считает скачивания, а `main.js` показывает их сумму по всем релизам («Скачали N раз»), версию и размер файла.
 
 Новая версия выкладывается одной командой из папки `life-rpg-app`:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File toolselease.ps1
+powershell -ExecutionPolicy Bypass -File tools
+elease.ps1
 ```
 
-Скрипт собирает подписанный APK, проверяет ключ, создаёт релиз с `LifeRPG.apk` и публикует этот сайт.
+Скрипт собирает подписанный APK, проверяет ключ, создаёт релиз с `LifeRPG.apk` и публикует этот сайт. Контрольная сумма и данные сборки сохраняются только у разработчика: `life-rpg-app/app/release/RELEASE_INFO.txt`.
 
 ## Безопасность
 

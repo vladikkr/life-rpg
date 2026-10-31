@@ -493,10 +493,6 @@ footer a:not(.brand) { display: inline-block; padding: 12px 4px; margin: -12px 0
 /* Установка */
 .steps { grid-template-columns: repeat(3, 1fr); }
 .steps li { box-shadow: 0 6px 0 var(--line-2); border: 2px solid var(--line); }
-.verify { display: flex; gap: 16px; align-items: flex-start; margin-top: 34px; padding: 20px 22px; border-radius: var(--r); background: var(--surface); border: 2px solid var(--line); }
-.verify > svg { flex: none; width: 30px; height: 30px; color: var(--green); }
-.verify p { color: var(--muted); font-size: 15px; margin: 4px 0 10px; }
-.verify code { display: block; font: 600 13px/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace; word-break: break-all; padding: 10px 12px; border-radius: 12px; background: var(--surface-2); color: var(--ink); user-select: all; }
 
 @media (max-width: 980px) {
   .links { display: none; }
@@ -504,6 +500,7 @@ footer a:not(.brand) { display: inline-block; padding: 12px 4px; margin: -12px 0
   .hero { padding-top: 40px; }
   .attrs, .rules { grid-template-columns: 1fr 1fr; }
   .day { grid-template-columns: 1fr 1fr; row-gap: 34px; }
+  .steps { grid-template-columns: repeat(3, 1fr); } /* три шага в ряд, без «висящего» третьего */
   .path-info { position: static; }
   .stage { min-height: 560px; }
   .video-grid { grid-template-columns: 1fr; gap: 32px; }

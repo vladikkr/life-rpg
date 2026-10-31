@@ -34,7 +34,7 @@ const DOWNLOAD = {
     btn.addEventListener("click", () => toast("Загрузка началась. Открой файл, когда он скачается"));
   });
 
-  /* ── Счётчик скачиваний, версия, размер и SHA-256 из релизов GitHub ── */
+  /* ── Счётчик скачиваний, версия и размер из релизов GitHub ── */
   const CACHE_KEY = "lrpg-release-v1";
   const CACHE_MS = 10 * 60 * 1000;
   const plural = (n, one, few, many) => {
@@ -54,7 +54,6 @@ const DOWNLOAD = {
     }
     if (info.version) setText("[data-version]", info.version);
     if (info.size) setText("[data-size]", `${(info.size / 1048576).toFixed(1).replace(".", ",")} МБ`);
-    if (info.sha) setText("[data-sha]", info.sha);
   }
 
   function readCache() {
@@ -80,14 +79,11 @@ const DOWNLOAD = {
       const count = releases.reduce((sum, r) => sum + apks(r).reduce((s, a) => s + (Number(a.download_count) || 0), 0), 0);
       const latest = releases.find((r) => apks(r).length);
       const asset = latest && apks(latest)[0];
-      // SHA-256 разработчик пишет в описании релиза строкой «SHA-256: …»
-      const shaMatch = latest && /SHA-256:\s*([0-9a-f]{64})/i.exec(latest.body || "");
       const info = {
         t: Date.now(),
         count,
         version: latest ? String(latest.tag_name || "").replace(/^v/i, "").slice(0, 20) : "",
         size: asset ? Number(asset.size) || 0 : 0,
-        sha: shaMatch ? shaMatch[1].toLowerCase() : "",
       };
       try { localStorage.setItem(CACHE_KEY, JSON.stringify(info)); } catch (_) {}
       render(info);
