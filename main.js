@@ -101,10 +101,10 @@ const DOWNLOAD = {
     legendary: { name: "Легендарный сундук", table: [120, 380, 750] },
   };
   const RARITY = [
-    ["Обычная", "var(--common)"],
-    ["Редкая", "var(--rare)"],
-    ["Эпическая", "var(--epic)"],
-    ["Легендарная", "var(--legendary)"],
+    ["ОБЫЧНАЯ", "var(--common)"],
+    ["РЕДКАЯ", "var(--blue)"],
+    ["ЭПИЧЕСКАЯ", "var(--purple)"],
+    ["ЛЕГЕНДАРНАЯ", "var(--orange)"],
   ];
   const ATTRS = ["Сила", "Ловкость", "Восприятие", "Выносливость", "Интеллект", "Харизма"];
   const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
@@ -148,7 +148,8 @@ const DOWNLOAD = {
 
   function resetChest() {
     stage.classList.remove("opened", "shaking");
-    openBtn.textContent = "Открыть сундук";
+    openBtn.innerHTML = '<i data-lucide="key-round"></i>Открыть сундук';
+    icons();
   }
 
   tabs.forEach((tab) => {
@@ -179,8 +180,9 @@ const DOWNLOAD = {
         `<span class="rd">${reward.desc}</span>`;
       stage.classList.remove("shaking");
       stage.classList.add("opened");
-      openBtn.textContent = "Открыть ещё раз";
-      if (reward.r === 3) toast("Легендарная награда. В приложении шанс такой же");
+      openBtn.innerHTML = '<i data-lucide="rotate-ccw"></i>Ещё раз';
+      icons();
+      if (reward.r === 3) toast("Легендарная награда!");
       busy = false;
     }, reduceMotion ? 50 : 1100);
   });
